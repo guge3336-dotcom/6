@@ -13,6 +13,12 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
+    # 修正：添加环境配置，解决部署失败的错误
+    environment:
+      name: github-pages 
+      url: ${{ steps.deployment.outputs.page_url }}
+      
     permissions:
       contents: read
       pages: write
